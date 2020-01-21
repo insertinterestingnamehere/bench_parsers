@@ -60,11 +60,14 @@ if __name__ == "__main__":
     markers = ['v', '^', '.']
     scale_top = 1.3
     scale_bottom = .8
-    for repo in test_repos[1:2]:
-        rkt_times = parse_bench_file("rkt_{}.txt".format(repo.name))
-        pl_times = parse_bench_file("pl_{}.txt".format(repo.name))
-        antlr_times = parse_bench_file("antlr_{}.txt".format(repo.name))
-        counts = parse_bench_file("count_{}.txt".format(repo.name))
+    for repo in test_repos:
+        try:
+            rkt_times = parse_bench_file("rkt_{}.txt".format(repo.name))
+            pl_times = parse_bench_file("pl_{}.txt".format(repo.name))
+            antlr_times = parse_bench_file("antlr_{}.txt".format(repo.name))
+            counts = parse_bench_file("count_{}.txt".format(repo.name))
+        except:
+            continue
         # antlr times are in ms whereas everything else is in seconds.
         for key in antlr_times:
             antlr_times[key] = [t / 1000. for t in antlr_times[key]]
