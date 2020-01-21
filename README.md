@@ -16,6 +16,8 @@ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O mi
 bash miniconda.sh -b -p $HOME/miniconda
 rm miniconda.sh
 ```
+Installing miniconda this way does not modify your path by default.
+In order to use this miniconda installation make sure that `$HOME/miniconda/bin` is on your path.
 
 Please also make sure that git and cmake are installed somewhere on your system.
 
